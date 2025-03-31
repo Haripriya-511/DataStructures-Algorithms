@@ -6,3 +6,6 @@ https://leetcode.com/problems/find-all-anagrams-in-a-string/description/
 
 Problem 3:
 https://leetcode.com/problems/minimum-size-subarray-sum/
+
+Problem 4:
+https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
