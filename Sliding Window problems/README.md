@@ -12,3 +12,6 @@ https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of
 
 Problem 5:
 https://leetcode.com/problems/minimum-window-substring/description/
+
+Problem 6:
+https://leetcode.com/problems/contains-duplicate-ii/description/
