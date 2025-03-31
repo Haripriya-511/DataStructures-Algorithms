@@ -9,3 +9,6 @@ https://leetcode.com/problems/minimum-size-subarray-sum/
 
 Problem 4:
 https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
+
+Problem 5:
+https://leetcode.com/problems/minimum-window-substring/description/
