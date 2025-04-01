@@ -15,3 +15,12 @@ https://leetcode.com/problems/minimum-window-substring/description/
 
 Problem 6:
 https://leetcode.com/problems/contains-duplicate-ii/description/
+
+Problem 7:
+https://leetcode.com/problems/count-subarrays-with-fixed-bounds/description/
+
+Problem 8:
+https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
+
+
+
