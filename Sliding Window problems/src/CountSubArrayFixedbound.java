@@ -5,6 +5,7 @@ public class CountSubArrayFixedbound {
         int maxK = 5;
         System.out.println("Brute:" + countSubarraysBrute(nums, minK, maxK));
         System.out.println("Optimal:" + countSubarraysOptimal(nums, minK, maxK));
+
     }
 
     public static long countSubarraysBrute(int[] nums, int minK, int maxK) {
