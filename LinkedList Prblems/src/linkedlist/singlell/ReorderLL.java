@@ -22,12 +22,10 @@ public class ReorderLL {
             fast=fast.next.next;
             slow=slow.next;
         }
-        System.out.println(slow.data);
+
         Node l1=slow.next;
         slow.next=null;
        l1=reverse(l1);
-        new SingleLinkedListImpl().printLinkedList(head);
-        new SingleLinkedListImpl().printLinkedList(l1);
         Node temp=head;
 
 
@@ -40,10 +38,6 @@ public class ReorderLL {
             temp=nextNode;
             l1=nextNode2;
         }
-        new SingleLinkedListImpl().printLinkedList(head);
-//        //return head;
-
-
     }
     public static void main(String[] args) {
         SingleLinkedListImpl singleLinkedList=new SingleLinkedListImpl();
