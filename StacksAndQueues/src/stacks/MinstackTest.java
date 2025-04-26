@@ -43,7 +43,7 @@ class MinStack2{
 
     public void push(int val) {
         st.push(val);
-        if(minStack.isEmpty() || val<=minStack.peek())
+        if(minStack.isEmpty() || val<minStack.peek())
             minStack.push(val);
     }
 
@@ -95,7 +95,7 @@ class MinStack3{
 
     public int top() {
         int diff = st.peek();
-        if (diff >= 0) {
+        if (diff >0) {
             return (min + diff);
         } else {
             return (min);
