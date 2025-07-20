@@ -26,7 +26,5 @@ public class ReverseDLL
         head= reverseLinkedListIterative(head) ;
         System.out.println("after reversal:");
         doubleLinkedList.printLinkedList(head);
-
-
     }
 }
