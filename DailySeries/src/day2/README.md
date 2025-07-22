@@ -75,19 +75,6 @@ Space: O(1)
 🧠 Use Case:
 Best for interviews and real-world usage due to readability and simplicity.
 
-🧪 main() Method
-java
-Copy
-Edit
-int []prices = {7,1,5,3,6,4};
-Runs and prints the results of all 3 methods for comparison:
-
-🖨️ Output:
-Copy
-Edit
-5
-5
-5
 ✅ All three implementations correctly return 5 (buy at 1, sell at 6).
 
 📌 Summary Table:
