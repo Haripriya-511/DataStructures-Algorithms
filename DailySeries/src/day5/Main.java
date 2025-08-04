@@ -1,0 +1,123 @@
+package day5;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+   static List<Employee> employees = Arrays.asList(
+            new Employee("Alice", 95000, "Engineering","Female"),
+            new Employee("Bob", 87000, "Engineering","Male"),
+            new Employee("Charlie", 99000, "Engineering","Male"),
+            new Employee("David", 75000, "Engineering","Male"),
+            new Employee("Eve", 88000, "HR","Male"),
+            new Employee("Frank", 92000, "HR","Male"),
+            new Employee("Grace", 88000, "HR","Female"),
+            new Employee("Heidi", 89000, "HR","Female"),
+            new Employee("Ivan", 102000, "Sales","Male"),
+            new Employee("Judy", 98000, "Sales","Female"),
+            new Employee("Ken", 96000, "Sales","Male"),
+            new Employee("Leo", 91000, "Sales","Male"),
+            new Employee("Mallory", 78000, "Marketing","Female"),
+            new Employee("Niaj", 82000, "Marketing","Male"),
+            new Employee("Olivia", 80000, "Marketing","Female"),
+            new Employee("Peggy", 85000, "Marketing","Male")
+    );
+    public static void main(String[] args) {
+        List<Integer> ll=Arrays.asList(1,2,3,45,56,78,89);
+        System.out.println(ll.stream().
+                collect(Collectors.groupingBy(i->i%2==0?"Even":"Odd")));
+
+        int arr1[]={11,24,3,4,5,6,7,8,9};
+        int arr2[]={3,4,5,6,7,54,23,90};
+        Set<Integer> set=new HashSet<>();
+        for(int i=0;i<arr1.length;i++){
+            set.add(arr1[i]);
+        }
+        List<Integer> res=new ArrayList<>();
+        for(int i=0;i<arr2.length;i++){
+            if(set.contains(arr2[i]))
+                res.add(arr2[i]);
+        }
+        for (int i :res) {
+            System.out.println(i);
+        }
+        Set<Integer> set1 = Arrays.stream(arr1)
+                .boxed()
+                .collect(Collectors.toSet());
+        List<Integer> result = Arrays.stream(arr2)
+                .boxed()
+                .filter(set1::contains)
+                .collect(Collectors.toList());
+
+String str= "am new army person";
+        Character c1 = str.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .stream().filter(entry -> entry.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst().get();
+        System.out.println("Non repeating characters:"+c1);
+//        highestPaying();
+//        employeeCount();
+//        findMinMax();
+//Given a list of strings, sort them according to increasing order of their length?
+        List<String> l=Arrays.asList("Java", "Python", "C#", "HTML", "Kotlin", "C++", "COBOL","Cpoiu");
+         l.stream()
+                .sorted((a, b) -> a.length() - b.length())
+                .forEach(System.out::println);
+
+        //How do you get last element of array?
+        List<Character> lastELements = l.stream().map(s -> s.charAt(s.length() - 1)).collect(Collectors.toList());
+        System.out.println(lastELements);
+
+        String lastElement = l.stream().reduce((first,second)-> second).get();
+
+        System.out.println(lastElement);
+
+
+    }
+    public static void highestPaying(){
+        // highest salaried employees
+        List<String> top3 = employees.stream()
+                .sorted(Comparator.comparingLong(Employee::getSalary).reversed())
+                .limit(3)
+                .map(Employee::getName)
+                .collect(Collectors.toList());
+        System.out.println(top3);
+        // highest paid per dept
+        Map<String, List<String>> top3PerDept = employees.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getDepartment,// key in map
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),// collects all Employees into a List
+                                list -> list.stream()
+                                        .sorted(Comparator.comparingLong(Employee::getSalary).reversed())
+                                        .limit(3)
+                                        .map(Employee::getName)
+                                        .collect(Collectors.toList())// collects list of names
+                        )
+                ));
+
+
+    }
+
+    //employee count according to gender having salary more than 50 k
+    // no of male employees having salary more than 50 k and same in female
+    //Ex: [{"Male": 5}, {"Female":6"}]
+    public static void employeeCount(){
+        Map<String, Long> collect = employees.stream()
+                .filter(employee -> employee.getSalary() > 50000)// filtered employees having above 50K
+                .collect(Collectors.groupingBy(Employee::getGender,// Key of map
+                        Collectors.counting()));//value of map
+        System.out.println(collect);
+    }
+    public static void findMinMax(){
+        List<Integer> l=Arrays.asList(10,2,3,4,5,6,7,80);
+        //my way
+        System.out.println("max:"+l.stream().sorted(Comparator.reverseOrder()).limit(1).findFirst());
+        System.out.println("min:"+l.stream().sorted(Comparator.naturalOrder()).limit(1).findFirst());
+
+    }
+}
+
