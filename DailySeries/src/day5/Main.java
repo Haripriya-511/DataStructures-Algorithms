@@ -5,22 +5,22 @@ import java.util.stream.Collectors;
 
 public class Main {
    static List<Employee> employees = Arrays.asList(
-            new Employee("Alice", 95000, "Engineering","Female"),
-            new Employee("Bob", 87000, "Engineering","Male"),
-            new Employee("Charlie", 99000, "Engineering","Male"),
-            new Employee("David", 75000, "Engineering","Male"),
-            new Employee("Eve", 88000, "HR","Male"),
-            new Employee("Frank", 92000, "HR","Male"),
-            new Employee("Grace", 88000, "HR","Female"),
-            new Employee("Heidi", 89000, "HR","Female"),
-            new Employee("Ivan", 102000, "Sales","Male"),
-            new Employee("Judy", 98000, "Sales","Female"),
-            new Employee("Ken", 96000, "Sales","Male"),
-            new Employee("Leo", 91000, "Sales","Male"),
-            new Employee("Mallory", 78000, "Marketing","Female"),
-            new Employee("Niaj", 82000, "Marketing","Male"),
-            new Employee("Olivia", 80000, "Marketing","Female"),
-            new Employee("Peggy", 85000, "Marketing","Male")
+            new Employee("Alice", 95000, "Engineering","Female",26),
+            new Employee("Bob", 87000, "Engineering","Male",28),
+            new Employee("Charlie", 99000, "Engineering","Male",69),
+            new Employee("David", 75000, "Engineering","Male",74),
+            new Employee("Eve", 88000, "HR","Male",63),
+            new Employee("Frank", 92000, "HR","Male",52),
+            new Employee("Grace", 88000, "HR","Female",20),
+            new Employee("Heidi", 89000, "HR","Female",52),
+            new Employee("Ivan", 102000, "Sales","Male",63),
+            new Employee("Judy", 98000, "Sales","Female",87),
+            new Employee("Ken", 96000, "Sales","Male",23),
+            new Employee("Leo", 91000, "Sales","Male",86),
+            new Employee("Mallory", 78000, "Marketing","Female",47),
+            new Employee("Niaj", 82000, "Marketing","Male",44),
+            new Employee("Olivia", 80000, "Marketing","Female",32),
+            new Employee("Peggy", 85000, "Marketing","Male",19)
     );
     public static void main(String[] args) {
         List<Integer> ll=Arrays.asList(1,2,3,45,56,78,89);
@@ -74,8 +74,9 @@ String str= "am new army person";
         String lastElement = l.stream().reduce((first,second)-> second).get();
 
         System.out.println(lastElement);
+        mostYoungestEmployee();
 
-
+        averageAge();
     }
     public static void highestPaying(){
         // highest salaried employees
@@ -117,6 +118,23 @@ String str= "am new army person";
         //my way
         System.out.println("max:"+l.stream().sorted(Comparator.reverseOrder()).limit(1).findFirst());
         System.out.println("min:"+l.stream().sorted(Comparator.naturalOrder()).limit(1).findFirst());
+
+    }
+    public static void mostYoungestEmployee(){
+        Employee employee = employees.stream()
+                .sorted(Comparator.comparingInt(Employee::getAge))
+                .limit(1)
+                .findFirst().get();
+        System.out.println(employee);
+    }
+    public static void averageAge(){
+        Map<String, Double> collect = employees.stream()
+                .collect(
+                        Collectors.groupingBy(Employee::getDepartment,
+                                Collectors.averagingInt(Employee::getAge)
+                        ));
+        System.out.println(collect);
+
 
     }
 }

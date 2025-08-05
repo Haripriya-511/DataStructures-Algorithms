@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VaidAnagaram {
+public class ValidAnagaram {
     public static boolean isAnagra1m(String s, String t) {
         int n1=s.length();
         int n2=t.length();
@@ -53,6 +53,7 @@ public class VaidAnagaram {
             countMap.put(s.charAt(i), countMap.getOrDefault(s.charAt(i), 0) + 1);
             countMap.put(t.charAt(i), countMap.getOrDefault(t.charAt(i), 0) - 1);
         }
+
         for (int count : countMap.values()) {
             if (count != 0) return false;
         }

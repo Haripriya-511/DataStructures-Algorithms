@@ -1,5 +1,6 @@
 package day3;
 
+import java.sql.SQLException;
 import java.util.*;
 
 public class GroupAnagrams {
@@ -49,6 +50,7 @@ public class GroupAnagrams {
             map.putIfAbsent(key,new ArrayList<>());
             map.get(key).add(strs[i]);
         }
+
 
         return new ArrayList<>(map.values());
 

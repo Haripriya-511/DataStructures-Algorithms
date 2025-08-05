@@ -5,14 +5,16 @@ public class Employee {
     private long salary;
     private String department;
     private String gender;
+    private Integer age;
     public Employee(){
 
     }
-   public Employee(String name,long salary,String department,String gender){
+   public Employee(String name,long salary,String department,String gender,Integer age){
         this.name=name;
         this.salary=salary;
         this.department=department;
         this.gender=gender;
+        this.age=age;
     }
 
     @Override
@@ -21,7 +23,17 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", salary=" + salary +
                 ", department='" + department + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
                 '}';
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getName() {
