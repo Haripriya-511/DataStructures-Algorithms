@@ -1,4 +1,4 @@
-package day5;
+package java8;
 
 public class Employee {
     private String name;

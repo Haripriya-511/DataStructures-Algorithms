@@ -1,7 +1,8 @@
-package day5;
+package java8;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
    static List<Employee> employees = Arrays.asList(
@@ -76,7 +77,29 @@ String str= "am new army person";
         System.out.println(lastElement);
         mostYoungestEmployee();
 
+
         averageAge();
+
+        String vowels="aeiojkplenbbyuaol";
+        List<String> collect1 = IntStream.range(0, vowels.length())
+                .filter(i -> {
+                    char ch = vowels.charAt(i);
+                    boolean b = (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+                    return b;
+                }).mapToObj(i -> vowels.charAt(i) + " -> " + i)
+                .collect(Collectors.toList());
+        System.out.println(collect1);
+
+        List<Character> collect2 = vowels.chars()
+                .mapToObj(c -> (char) c)
+                .filter(ch -> {
+                    boolean b = (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+                    return b;
+                }).collect(Collectors.toList());
+        System.out.println(collect2);
+
+
+
     }
     public static void highestPaying(){
         // highest salaried employees
