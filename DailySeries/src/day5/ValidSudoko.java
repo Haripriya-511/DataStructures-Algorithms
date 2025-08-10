@@ -37,14 +37,9 @@ public class ValidSudoko {
     }
     public boolean isValidSudoku(char[][] board) {
         int rows = 9;
-        int cols = 9;
         for (int i = 0; i < rows; i++) {
-
-
             if(!validateRow(board,i)) return false;
             if(!validateCol(board,i)) return false;
-
-
         }
         for(int i=0;i<9;i+=3) {
             for (int j = 0; j < 9; j += 3) {
@@ -52,17 +47,12 @@ public class ValidSudoko {
                     return false;
             }
         }
-
         return true;
-
-
     }
 
     public boolean vaidateSudokoOnePass(char[][] board){
         HashSet<Character>[] rows = new HashSet[9];
-
         HashSet<Character>[] cols = new HashSet[9];
-
         HashSet<Character>[] boxes = new HashSet[9];
         for (int i = 0; i < 9; i++) {
             rows[i] = new HashSet<>();

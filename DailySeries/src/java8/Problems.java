@@ -157,8 +157,8 @@ public class Problems {
                 .forEach(System.out::println);
     }
     @Test
-    public void vowelsIndices(){
-        String vowels="aeiojkplenbbyuaol";
+    public void vowelsIndices() {
+        String vowels = "aeiojkplenbbyuaol";
         List<String> collect1 = IntStream.range(0, vowels.length())
                 .filter(i -> {
                     char ch = vowels.charAt(i);
@@ -175,10 +175,13 @@ public class Problems {
                     return b;
                 }).collect(Collectors.toList());
         System.out.println(collect2);
-
-
-
-
     }
+    @Test
+    public  void containsDuplicate4(){
+        int nums[]={1,2,3,4,3};
+      boolean contains=   Arrays.stream(nums).distinct().count()<nums.length;
+        System.out.println(contains);
+    }
+
 
 }

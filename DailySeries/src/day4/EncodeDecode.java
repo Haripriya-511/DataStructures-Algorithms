@@ -22,7 +22,6 @@ public class EncodeDecode {
         }
         return sb.toString();
     }
-
     public static List<String> decode1(String str) {
         if (str.length() == 0) {
             return new ArrayList<>();
@@ -55,9 +54,7 @@ public class EncodeDecode {
         }
         return  builder.toString();
     }
-
     public static List<String> decode(String str) {
-
         List<String> array=new ArrayList<>();
         int i=0;
         while(i<str.length()){
@@ -74,6 +71,7 @@ public class EncodeDecode {
         return array;
 
     }
+
     public static void main(String[] args) {
         List<String> strings= Arrays.asList("neet","code","love","you");
         System.out.println(encode1(strings));

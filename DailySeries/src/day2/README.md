@@ -164,9 +164,7 @@ Only works for lowercase a–z. Not suitable for Unicode or case-sensitive compa
 🧪 main() Method:
 Tests all 3 methods using:
 
-java
-Copy
-Edit
+
 System.out.println(isAnagra1m("nagaram", "anagram")); // true
 System.out.println(isAnagram2("nagaram", "anagram")); // true
 System.out.println(isAnagram3("nagaram", "anagram")); // true
